@@ -1,0 +1,13 @@
+To build, run 'make'
+
+To run without using openmp, command looks like this:
+mpirun -np 4  --hostfile host_file ./mpi_matrix 1500 1500 1500 0 0
+           ^ 4 processors
+                         ^looks for this host file
+												^M   ^N   ^P   ^don't print
+														   no OMP^
+
+Here is an example running 1 processor, no print, 1500 square, and using the openMP option. You should run on the cluster like this (but vary np):
+mpirun -np 1 --bind-to none --hostfile host_file ./mpi_matrix 1500 1500 1500 0 1
+	
+																			
